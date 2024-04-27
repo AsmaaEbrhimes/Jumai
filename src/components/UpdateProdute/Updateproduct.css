@@ -1,0 +1,23 @@
+.formUpdateProduct{
+   width: 100%;
+   padding: 30px;
+}
+.formUpdateProduct input{
+    margin-bottom: 30px;
+}
+.formUpdateProduct button{
+    display: block;
+    width: 100%;
+    border: none;
+    background-color: cornflowerblue;
+    color:white;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.formUpdateProduct button:hover{
+    opacity: 0.7;
+}
+.label{
+    cursor: pointer;
+}

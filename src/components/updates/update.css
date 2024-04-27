@@ -1,0 +1,17 @@
+
+.form_update{
+    width: 80%;
+    display: block;
+    margin: auto;
+}
+.form_update input{
+width: 100%;
+}
+
+.btn_update{
+    border: none;
+    background-color: rgb(65, 65, 240);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+}

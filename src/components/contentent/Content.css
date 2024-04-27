@@ -1,0 +1,155 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #eee;
+    font-family: 'Rubik', sans-serif;
+}
+
+.row {
+    top: -40px;
+    position: relative;
+}
+
+.list_content {
+    list-style: none;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.list_content li {
+    margin-bottom: 4px;
+    transition: 0.3s linear;
+}
+
+.list_content li i {
+    margin-right: 10px;
+}
+
+.list_content li:hover {
+color: darkorange;
+    
+    cursor: pointer;
+}
+
+
+
+.center_img img {
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.Carousel img{
+    height: 380px;
+}
+.right_content {
+    background-color: white;
+    width: 217px;
+
+    border-radius: 10px;
+    padding: 4px;
+    margin-bottom: 10px;
+}
+
+.right_content div.flex_selling {
+    display: flex;
+}
+
+
+.right_content div.flex_selling h3{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.right_content div.flex_selling p{
+    position: relative;
+    top:-10px
+}
+.flex_selling img{
+    margin-right: 20px;
+}
+
+.animated img{
+height: 166px;
+border-radius: 10px;
+  width: 220px;
+
+}
+
+.right_content div img {
+    width: 30px;
+    height: 30px;
+border-radius: 10px;
+}
+
+@media (min-width:320px) and (max-width:767px) {
+    .animated img,.right_content{
+        display: none;
+    }
+    .list_content{
+      display: none;
+    }
+
+    .center_img{
+    position: relative;
+    margin-top: 50px;
+}
+
+}
+
+@media (min-width:767px) and (max-width:1200px) {
+    .center_img img {
+        width: 100%;
+        height: 330px;
+    }
+.right_content{
+    width: 200px;
+}
+    .list_content{
+        font-size: 10px;
+        padding: 20px;
+    }
+    .anmited img {
+        width: calc(100% + 100%);
+        height: 140px;
+        border-radius: 100px;
+        
+    }
+}
+
+
+@media (min-width:767px) and (max-width:1200px){
+.row{
+    position: relative;
+    top: 7px;
+}
+
+.right_content {
+height: 200px;
+}
+
+.animated img{
+height: 120px;
+width: 200px;
+border-radius: 10px;
+}
+
+}
+
+
+@media (min-width:1200px) and (max-width:1400px){
+
+    .Carousel img{
+        height: 380px;
+    }
+    .animated img{
+        height: 170px;
+        border-radius: 10px;
+        width: 220px;
+        }
+}

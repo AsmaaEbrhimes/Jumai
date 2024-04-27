@@ -1,0 +1,38 @@
+.ovely_dishboard {
+    position: relative;
+    background-color:rgb(254 252 232 );
+    height: 100%;
+    color: black;
+}
+
+.Action_user{
+    text-align: center;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    cursor: pointer;
+
+}
+
+
+.Action_user .update_user{
+    display: inline-block;
+    background-color: green;
+    color:white;
+    padding: 7px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+.Action_user .delete_user{
+    background-color: rgb(202, 59, 7);
+    color:white;
+    padding: 7px;
+    border: none;
+    margin-left: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+
+}

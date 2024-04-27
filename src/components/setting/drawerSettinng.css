@@ -1,0 +1,19 @@
+.categore{
+    text-align: right;
+}
+
+.categore h1{
+    padding: 10px;
+    font-family: 'Rubik', sans-serif;
+}
+
+
+.settingdrawer_list{
+ padding: 10px;
+}
+
+.settingdrawer_list li{
+    margin-bottom: 10px;
+    color: chocolate;
+    cursor: pointer;
+}

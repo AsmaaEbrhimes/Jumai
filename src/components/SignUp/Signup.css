@@ -1,0 +1,129 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.font {
+    font-family: "Italianno", cursive;
+    font-weight: 400;
+    text-align: right;
+    position: relative;
+    text-decoration: none;
+    color: darkorange;
+    padding-top: 20px;
+}
+
+
+
+
+.parent {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: bisque;
+}
+
+.parent .icon {
+    display: inline-block;
+    color: darkorange;
+    height: 40px;
+    position: absolute;
+    right: 20px;
+}
+
+form {
+    position: relative;
+    background-color: white;
+    padding: 15px;
+    border-radius: 7px;
+    box-shadow: 1px 1px 10px rgb(119, 92, 58),
+        1px 1px 10px rgb(119, 92, 58),
+        1px 1px 10px rgb(119, 92, 58),
+        1px 1px 10px rgb(119, 92, 58),
+        1px 1px 10px rgb(119, 92, 58);
+    width: 30%;
+}
+
+
+
+form input {
+    display: block;
+    padding: 10px;
+    border: 1px solid #ccc;
+    width: 100%;
+    border-radius: 7px;
+    margin-bottom: 10px;
+    transition: 0.9s linear;
+}
+
+
+
+
+form input:focus {
+    outline: none;
+}
+
+form label {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.btn_supmit {
+    position: relative;
+    margin-right: 0px
+}
+
+.btn_supmit button {
+    position: relative;
+    display: block;
+    text-align: center;
+    margin: auto;
+    margin-top: 30px;
+    border: none;
+    padding: 10px;
+    border-radius: 3px;
+    width: 100%;
+    background-color: rgb(240, 140, 17);
+
+    color: white;
+    transition: 0.3s linear;
+}
+
+.btn_supmit button:hover {
+    background-color: white;
+    border: 2px solid rgb(240, 140, 17);
+    color: rgb(240, 140, 17);
+}
+
+.signup_img img{
+    display: inline;
+    position: relative;
+    margin-left: 5px;
+    height: 500px;
+   
+}
+
+@media (min-width:320px) and (max-width:767px) {
+    form {
+        width: 90%;
+    }
+
+
+    .signup_img img{
+        display: none;
+    }
+}
+
+@media (min-width:767px) and (max-width:1200px) {
+    .btn_supmit button {
+        width: 40%;
+    }
+
+    /* .font {
+        
+        top: 80px;
+    } */
+}

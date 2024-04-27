@@ -1,0 +1,282 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+
+
+.creat_col {
+    margin: auto;
+    text-align: center;
+
+}
+
+.creat_product {
+    text-align: center;
+    padding: 30px;
+    /* color: white; */
+    height: 100%;
+    margin-top: 30px;
+    background-color: rgb(254 252 232);
+}
+
+
+.creat_product p {
+    margin-bottom: 40px;
+    font-size: 20px;
+}
+
+.creat_image {
+    width: 100%;
+    height: 700px;
+    margin-top: 20px;
+    border-radius: 50%;
+
+}
+
+.form_creat_product {
+    text-align: center;
+    margin: auto;
+    margin-top: 20px;
+    box-shadow: 0 0 10px black;
+    color: black;
+    width: 100%;
+}
+
+.form_creat_product input {
+    border: none;
+    background-color: transparent;
+    border: none;
+}
+
+
+input.name_input {
+    position: relative;
+    top: 50px;
+    border-bottom: 1px solid rgb(234, 233, 227);
+    padding: 10px;
+    transition: 0.5s linear;
+}
+
+input.name_input:focus {
+    border-bottom: 1px solid rgb(243, 222, 0);
+}
+
+input.name_input:focus~span {
+    pointer-events: none;
+    position: relative;
+    font-size: 15px;
+    top: -30px;
+}
+
+.form_creat span.name {
+    color: black;
+    text-align: right;
+    display: block;
+    margin-right: 10px;
+    margin-top: 20px;
+    transition: 0.5s linear;
+}
+
+
+
+
+
+
+.form_creat_product label {
+    position: relative;
+    text-align: right;
+    display: block;
+    margin-bottom: 0px;
+    top: 40px;
+    transition: 0.5s linear;
+}
+
+
+
+
+.select_input {
+    position: relative;
+    margin-top: 60px;
+
+}
+
+.form_creat_product input.input_qty {
+    width: 50%;
+    display: inline;
+}
+
+.form_creat_product .flex_input {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+
+
+
+
+
+
+.form_creat_product .flex_input div {
+    border-bottom: 1px solid rgb(234, 233, 227);
+    margin-left: 10px;
+}
+
+
+.form_creat_product .flex_input div span {
+    font-size: 14px;
+    position: relative;
+    top: -6px;
+    display: inline-block;
+    transition: 0.5s linear;
+
+}
+
+.form_creat_product input.input_price {
+    width: 50%;
+    display: inline;
+    transition: 0.5s linear;
+    width: 100%;
+    position: relative;
+    top: 35px;
+}
+
+.form_creat_product input.input_qty{
+    width: 50%;
+    display: inline;
+    transition: 0.5s linear;
+    width: 100%;
+    position: relative;
+    top: 35px;
+}
+
+.form_creat_product input.input_qty:focus{
+    border-bottom: 1px solid rgb(243, 222, 0);
+}
+
+.form_creat_product input.input_qty:focus+span{
+    top: -15px;
+    position: relative;
+    pointer-events: none;
+    font-size: 10px;
+}
+
+.form_creat_product .flex_input .input_price:focus {
+    border-bottom: 1px solid rgb(243, 222, 0);
+}
+
+.form_creat_product input.input_price:focus+span {
+    top: -15px;
+    position: relative;
+    pointer-events: none;
+    font-size: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+.camera_image {
+    height: 100px;
+    margin: auto;
+    display: block;
+    cursor: pointer;
+    position: relative;
+    top: -40px;
+}
+
+
+
+textarea {
+    display: block;
+    width: 100%;
+    resize: none;
+    height: 100px;
+    position: relative;
+    margin-top: 50px;
+    margin-bottom: 30px;
+
+}
+
+.upload {
+    position: absolute;
+    bottom: 100px;
+}
+
+input[type="file"] {
+    display: none;
+
+    margin-top: 30px;
+}
+
+select {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 7px;
+    border: none;
+    border: 1px solid sandybrown;
+    cursor: pointer;
+}
+
+
+.parent_btn {
+    text-align: left;
+}
+
+.btn_send:first-child {
+    background-color: green;
+    color: white;
+    padding: 10px;
+    border-radius: 7px;
+    position: relative;
+    text-align: left;
+    border: none;
+    margin-right: 10px;
+}
+
+.btn_send:nth-child(2) {
+    background-color: red;
+    color: white;
+    padding: 10px;
+    border-radius: 7px;
+    text-align: left;
+    border: none;
+}
+
+
+.btn_action_product{
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.btn_action_product button.green{
+    background-color: green;
+    color: white;
+    padding: 10px;
+    border-radius: 7px;
+    text-align: left;
+    border: none;
+    margin-right: 10px;
+}
+
+
+.btn_action_product  button.red{
+    background-color: red;
+    color: white;
+    padding: 10px;
+    border-radius: 7px;
+    text-align: left;
+    border: none;
+}

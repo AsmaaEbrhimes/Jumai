@@ -1,0 +1,10 @@
+
+.flex_item_setting{
+    display: flex;
+  justify-content: space-between;
+}
+.flex_icon{
+    display: flex;
+    align-items: center;
+
+}
