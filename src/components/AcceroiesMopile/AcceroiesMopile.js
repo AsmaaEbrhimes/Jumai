@@ -29,7 +29,7 @@ const AcceroiesMopile = () => {
         <>
             <Header />
             <Container>
-                <Row className="content_product_api"style={{position:"relative",marginTop:"200px"}}>
+                <Row className="content_product_api"style={{position:"relative",marginTop:"200px",minHeight:"200px"}}>
                     {filterAcceroiesMopileByCategore.map((item) => (
                         <Col key={item.id} xs={6} md={4} lg={3}>
 
