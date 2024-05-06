@@ -14,11 +14,13 @@ import icon_2 from "../../Image/4.png";
 import animate from "../../Image/218x184AR.gif";
 import { useTranslation } from 'react-i18next';
 import { Link } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect , useState } from "react";
 import "./Content.css";
 
 const Content = () => {
     const { t } = useTranslation();
+    const [soundPlayed, setSoundPlayed] = useState(false);
+
 
     const speachspeak = () => {
         if ("speechSynthesis" in window) {
@@ -28,11 +30,17 @@ const Content = () => {
         } else {
             alert("Your browser does not support speech synthesis!");
         }
-      }
-      
-      useEffect(() => {
-        speachspeak();
-      }, []);
+    }
+
+    useEffect(() => {
+        const isSoundPlayed = sessionStorage.getItem('isSoundPlayed');
+        if (!isSoundPlayed) {
+            speachspeak();
+            setSoundPlayed(true);
+            sessionStorage.setItem('isSoundPlayed', true);
+        }
+    }, []);
+
       
     return (
         <>
