@@ -81,6 +81,8 @@ export default function DataTable() {
     { field: '_id', headerName: 'ID', width: 350 },
     { field: 'phone', headerName: 'Email', width: 350 },
     { field: 'email', headerName: 'Phone', width: 350 },
+    { field: 'role', headerName: 'role', width: 350 },
+    { field: 'date', headerName: 'Date', width: 350 },
   ];
 
   return (
