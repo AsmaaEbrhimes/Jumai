@@ -2,32 +2,37 @@
     font-family: 'Rubik', sans-serif;
     color: white;
     position: relative;
-   
+
 }
 
-.one_footer ul{
+.one_footer ul {
     position: relative;
     margin-top: 100px;
 }
-.one_flex_overlay{
+
+.one_flex_overlay {
     padding: 20px;
     background-color: black;
 }
-.one_footer .flex_list{
+
+.one_footer .flex_list {
     display: flex;
-   
+
 }
+
 
 .section_two_footer {
     text-align: right;
     position: relative;
+    margin-top: 50px;
+
 }
 
-.section_two_footer p{
+.section_two_footer p {
     margin-bottom: 20px;
 }
 
-.email_footer{
+.email_footer {
     position: relative;
     z-index: 1;
     right: 40px;
@@ -36,7 +41,7 @@
 
 }
 
-.section_two_footer button{
+.section_two_footer button {
     border: 1px solid white;
     margin-left: 10px;
     margin-right: 10px;
@@ -45,7 +50,7 @@
     color: white;
 }
 
-.section_two_footer input{
+.section_two_footer input {
     border: 1px solid white;
     margin-left: 10px;
     margin-right: 10px;
@@ -55,14 +60,12 @@
     color: black;
     border-radius: 10px;
 }
+
 .footer {
     background-color: rgb(57, 56, 56);
     color: white;
     position: relative;
-  margin-top: 40px;
-
-    margin-bottom: 0px;
- 
+    margin-top: 30px;
     z-index: 1;
     padding: 20px;
     font-family: 'Rubik', sans-serif;
@@ -84,28 +87,30 @@
 
 
 
-@media (min-width:320px) and (max-width:767px){
-.img_footer{
-    display: none;
-}
+@media (min-width:320px) and (max-width:767px) {
+    .img_footer {
+        display: none;
+    }
 
-.img_footer , .btn_footer{
-    display: block;
-    text-align: center;
-    margin: auto;
-}
+    .img_footer,
+    .btn_footer {
+        display: block;
+        text-align: center;
+        margin: auto;
+    }
 
-.input_footer{
-   margin-top: 30px;
-}
+    .input_footer {
+        margin-top: 30px;
+    }
 
-.flex_list{
-    display: block;
-    width: 100%;
-}
-.section_two_footer{
-    display: block;
-    width: 100%;
-    margin-top: 20px;
-}
+    .flex_list {
+        display: block;
+        width: 100%;
+    }
+
+    .section_two_footer {
+        display: block;
+        width: 100%;
+        margin-top: 20px;
+    }
 }

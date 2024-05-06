@@ -14,6 +14,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import axios from "axios"
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 
@@ -136,8 +137,13 @@ const Header = ({ changeAr, changeEn }) => {
                         <Canvs handleShow={handleShow} handleClose={handleClose} show={show} />
                         <div className="flex_header">
                             <div onClick={handleShow} className="d-flex shopping"><p>سله التسوق</p><LocalMallIcon /></div>
-                            <div className="d-flex help"><i class="cursor-pointer fa-solid fa-angle-down"></i><p>المساعده</p><i class="fa-solid fa-circle-question"></i>
+                            
+                            <Link to="/map" style={{ textDecoration: 'none' }}>
+                            <div className="d-flex help">
+                            <i class="cursor-pointer fa-solid fa-angle-down"></i>
+                            <p>المساعده</p><i class="fa-solid fa-circle-question"></i>
                             </div>
+                            </Link>
                             <div className="search"> <button className="btn_search">ابحث</button><input onChange={(e) => filteBySearch(e)} placeholder="ابحث عن المنتجات" type="text" />
 
                                 {block &&
@@ -154,7 +160,13 @@ const Header = ({ changeAr, changeEn }) => {
                                     </div>
                                 }
                             </div>
-                            <div><img className="jumia" src={img_icon} alt="" /></div>
+
+                            <div>
+                                <Link to="/content">
+                                    <img style={{ cursor: "pointer" }} className="jumia" src={img_icon} alt="" />
+                                </Link>
+                            </div>
+
                             <MenuIcon onClick={openDrawerSetting} className='bars_header' />
                         </div>
                     </Container>

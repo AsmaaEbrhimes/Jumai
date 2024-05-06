@@ -6,7 +6,6 @@ import { Container, Row, Col } from "react-bootstrap";
 import Carousel from 'react-bootstrap/Carousel';
 import ScrollTop from "../Scroll/Scroll";
 import Sgaring from "../sharing/sharing";
-
 import img_1 from "../../Image/DesktopAR (1).png";
 import img_2 from "../../Image/DesktopAR (2).png";
 import img_3 from "../../Image/DesktopAR (3).png";
@@ -15,17 +14,35 @@ import icon_2 from "../../Image/4.png";
 import animate from "../../Image/218x184AR.gif";
 import { useTranslation } from 'react-i18next';
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 import "./Content.css";
 
 const Content = () => {
     const { t } = useTranslation();
+
+    const speachspeak = () => {
+        if ("speechSynthesis" in window) {
+            const speechMsg = new SpeechSynthesisUtterance();
+            speechMsg.text = "welcome to user my name AsmAA Ebrhime i,m the frontend devolper i will be Work IN the speachfication frontend";
+            window.speechSynthesis.speak(speechMsg);
+        } else {
+            alert("Your browser does not support speech synthesis!");
+        }
+      }
+      
+      useEffect(() => {
+        speachspeak();
+      }, []);
+      
     return (
         <>
-            <div style={{ backgroundColor: '#eee', position:"relative", marginTop:"200px" }}>
+            <div style={{ backgroundColor: '#eee', position: "relative", marginTop: "200px" }}>
                 <Container>
+
                     <Sgaring />
                     <ScrollTop />
                     <Row className="row">
+
                         <Col xs="12" md="3" xl="3">
                             <ul className="list_content">
                                 <Link to="/supmarket" style={{ textDecoration: 'none', color: "black" }}>
@@ -38,30 +55,30 @@ const Content = () => {
                                     <li><i className="fa-solid fa-x-ray mr-2 ml-2  mb-2"></i> {t('Healthy&beatuy')}</li>
                                 </Link>
                                 <Link to="/game" style={{ textDecoration: 'none', color: "black" }}>
-                                <li><i className="fa-solid fa-baby mr-2 ml-2 mb-2"></i> {t('Babyproducts')}</li>
+                                    <li><i className="fa-solid fa-baby mr-2 ml-2 mb-2"></i> {t('Babyproducts')}</li>
                                 </Link>
 
                                 <Link to="/acceroiesMopile" style={{ textDecoration: 'none', color: "black" }}>
-                                <li><i class="fa-solid fa-mobile-retro"></i>AccerioseMopile</li>
+                                    <li><i class="fa-solid fa-mobile-retro"></i>AccerioseMopile</li>
                                 </Link>
 
                                 <Link to="/schoolBag" style={{ textDecoration: 'none', color: "black" }}>
-                                <li><i class="fa-solid fa-suitcase-rolling"></i>Bag</li>
+                                    <li><i class="fa-solid fa-suitcase-rolling"></i>Bag</li>
                                 </Link>
                                 <Link to="/clothing" style={{ textDecoration: 'none', color: "black" }}>
-                                <li><i className="fa-solid fa-blender-phone  mr-2 ml-2 mb-2"></i>clothingWomen</li>
+                                    <li><i className="fa-solid fa-blender-phone  mr-2 ml-2 mb-2"></i>clothingWomen</li>
                                 </Link>
                                 <Link to="/kids" style={{ textDecoration: 'none', color: "black" }}>
-                                <li><i class="fa-solid fa-user-astronaut"></i>Kids</li>
+                                    <li><i class="fa-solid fa-user-astronaut"></i>Kids</li>
                                 </Link>
                                 <Link to="/computer" style={{ textDecoration: 'none', color: "black" }}>
-                                <li><i className="fa-solid fa-desktop mr-2 ml-2  mb-2"></i> {t('computer')}</li>
+                                    <li><i className="fa-solid fa-desktop mr-2 ml-2  mb-2"></i> {t('computer')}</li>
                                 </Link>
                                 <Link to="/toolsports" style={{ textDecoration: 'none', color: "black" }}>
-                                <li><i className="fa-solid fa-futbol mr-2 ml-2 mb-2"></i> {t('sportingGoods')}</li>
+                                    <li><i className="fa-solid fa-futbol mr-2 ml-2 mb-2"></i> {t('sportingGoods')}</li>
                                 </Link>
                                 <Link to="/part" style={{ textDecoration: 'none', color: "black" }}>
-                                <li><i className="fa-solid fa-vr-cardboard mr-2 ml-2  mb-2"></i> {t('gmaing')}</li>
+                                    <li><i className="fa-solid fa-vr-cardboard mr-2 ml-2  mb-2"></i> {t('gmaing')}</li>
                                 </Link>
                             </ul>
                         </Col>
@@ -111,5 +128,16 @@ const Content = () => {
         </>
     )
 }
-
 export default Content;
+
+
+
+
+
+
+
+
+
+
+
+

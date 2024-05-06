@@ -16,23 +16,22 @@ const Footer = () => {
                 <Container>
                     <Row className="one_footer">
 
-                        <Col xs="12" md="4"style={{marginTop:"50px"}}>
-                                <div className="flex_list">
-                                    <div>
-                                        <h5>تنزيل تطبيق جوميا المجاني</h5>
-                                        <p>احصل علي العديد من العروض الحصريه</p>
-                                    </div>
-                                    <img style={{ width: "40px", height: "50px", marginLeft: "10px" }} src={jumai} alt="" />
+                        <Col xs="12" md="4" style={{ marginTop: "50px" }}>
+                            <div className="flex_list">
+                                <div>
+                                    <h5>تنزيل تطبيق جوميا المجاني</h5>
+                                    <p>احصل علي العديد من العروض الحصريه</p>
                                 </div>
-                                <div className="img_footer" style={{ marginTop: "40px" }}>
-                                    <img style={{ width: "100px" }} src={googleimg} alt="" />
-                                    <img style={{ width: "100px", marginLeft: "10px" }} src={appel} alt="" />
-                                </div>
-                          
+                                <img style={{ width: "40px", height: "50px", marginLeft: "10px" }} src={jumai} alt="" />
+                            </div>
+                            <div className="img_footer" style={{ marginTop: "40px" }}>
+                                <img style={{ width: "100px" }} src={googleimg} alt="" />
+                                <img style={{ width: "100px", marginLeft: "10px" }} src={appel} alt="" />
+                            </div>
+
                         </Col>
 
-                        <Col xs="12" md="4" className="section_two_footer" style={{marginTop:"50px"}}>
-                        
+                        <Col xs="12" md="4" className="section_two_footer">
                             <h6>هل انت جديد علي جوميا</h6>
                             <p>اشترك في نشرتنا الاخباريه للحصول علي احدث العروض</p>
 
@@ -60,17 +59,15 @@ const Footer = () => {
 
                             </div>
                             <p style={{ color: "chocolate" }}>أوافق علي الشروط القانونية</p>
-                        
+
                         </Col>
 
 
 
 
 
-                        <Col md="4" style={{ textAlign: "right" , marginTop:"50px" }}>
-
+                        <Col md="4" style={{ textAlign: "right", marginTop: "50px" }}>
                             <img className="img_footer" src={imgjumia} alt="" />
-                            
                         </Col>
 
                     </Row>

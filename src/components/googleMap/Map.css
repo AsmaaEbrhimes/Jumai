@@ -1,0 +1,12 @@
+@media (min-width:320px) and (max-width:767px){
+    .map{
+        position: relative;
+        margin-top: 20px;
+    }
+}
+@media (min-width:767px) and (max-width:1200px){
+    .row_map{
+        position: relative;
+        margin-bottom: 30px;
+    }
+}

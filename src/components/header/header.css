@@ -132,6 +132,11 @@ p {
 .help {
     display: flex;
     cursor: pointer;
+    color: black;
+    transition: 0.3s linear;
+}
+.help:hover{
+    color: chocolate;
 }
 
 .help i {

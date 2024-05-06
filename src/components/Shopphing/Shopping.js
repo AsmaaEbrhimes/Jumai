@@ -15,9 +15,9 @@ import ShieldSharpIcon from '@mui/icons-material/ShieldSharp';
 import axios from "axios";
 
 const Shopping = ({ valuerange }) => {
-    // const [productIds, setProductIds] = useState([]);
+    const [productIds, setProductIds] = useState([]);
     const [showcart, setShowcart] = useState([])
-    console.log(valuerange)
+
     const getSupTotal = () => {
         const total = showcart?.reduce((acc, item) => {
             return acc + item.price;
@@ -43,12 +43,9 @@ const Shopping = ({ valuerange }) => {
                     'Authorization': `Bearer ${token} `
                 }
             }).then((res) => {
-
                 setShowcart(res.data)
-
             })
             .catch((err) => console.log(err))
-
     }, [])
 
 
@@ -58,26 +55,24 @@ const Shopping = ({ valuerange }) => {
                 'Authorization': `Bearer ${token} `
             }
         }).then((res) => {
-
             setShowcart(del => del.filter((ele) => ele._id !== id))
-
         })
     }
 
     const deleteProductAll = () => {
-        alert("jdjd")
-
-        // const idsToDelete=showcart.map((ele)=>ele._id)
-        // setProductIds(idsToDelete)
-        // console.log(productIds)
-        // axios.delete("https://backfood2-1traner.onrender.com/api/cart/deleteAll", {
-        //     _id:productIds,
-        //     headers: {
-        //         'Authorization': `Bearer ${token} `
-        //     }
-        // }).then((res) => console.log(res))
-        //     .catch((err) => console.log(err))
+        const idsToDelete = showcart.map((ele) => ele._id)
+        // console.log(idsToDelete)
+        setProductIds(idsToDelete)
+        console.log(productIds)
+        axios.delete("https://backfood2-1traner.onrender.com/api/cart/deleteAll", {
+            _id:productIds,
+            headers: {
+                'Authorization': `Bearer ${token} `
+            }
+        }).then((res) => console.log(res.data))
+            .catch((err) => console.log(err))
     }
+
 
 
 
@@ -101,7 +96,6 @@ const Shopping = ({ valuerange }) => {
                     </div>
                 </div>
 
-
                 <Row className="content_product_shopping" style={{ position: "relative" }}>
                     <Col xs="12" sm="12" md="9">
                         <div className="products_cart">
@@ -124,10 +118,14 @@ const Shopping = ({ valuerange }) => {
                         <div>
                             <h5 style={{ padding: "10px", borderBottom: "1px solid darkgoldenrod", color: "black" }}>Order summary</h5>
                             <p style={{ color: "black" }}>Total:  <span style={{ color: "darkgoldenrod", fontSize: "20px" }}>{getSupTotal().formattedTotal}</span></p>
-                            <p style={{ color: "white", background: "black", padding: "10px" }}>Checkout</p>
+                            <Link to="/paypal" style={{ textDecoration: 'none' }}>
+                                <p style={{ color: "white", background: "black", padding: "10px" }}>Checkout</p>
+                            </Link>
                             <div className="d-flex" style={{ marginTop: "10px" }}>
                                 <ShieldSharpIcon style={{ color: "green" }} />
+
                                 <p style={{ color: "black" }}> Secure Checkout</p>
+
                             </div>
                             <button onClick={deleteProductAll} style={{ zIndex: "111", border: "none", padding: "10px", background: "darkgoldenrod", color: "white", width: "100%", marginTop: "10px" }}>Clear All Product</button>
                         </div>

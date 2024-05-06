@@ -1,4 +1,5 @@
-import "./Detalis.css"
+
+
 import { Col, Row, Container } from "react-bootstrap";
 import * as React from 'react';
 import { useTheme } from '@mui/material/styles';
@@ -6,67 +7,37 @@ import OutlinedInput from '@mui/material/OutlinedInput';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { } from '@mui/material/Select';
-import PopSize from "./popupSize"
+import PopSize from "../detalisProduct/popupSize"
 import { useState, useEffect } from "react";
+import Data from "../glopalData/GlopalData";
 import { useParams } from 'react-router-dom';
-import axios from "axios";
-import Cookies from "cookie-universal";
-import { ToastContainer, toast } from 'react-toastify';
+
 import 'react-toastify/dist/ReactToastify.css';
-import Footer from "../Footer/Footer"
-const Details = () => {
+
+const DetailsGlopal = () => {
     const [open, setOpen] = useState(false);
-    const [detailsData, setdetailsData] = useState([])
+    const [detailsData, setDetailsData] = useState([]);
+    const [selectedImage, setSelectedImage] = useState(null);
+    
     const handleClickOpen = () => {
         setOpen(true);
     };
+    const handleClose = () => setOpen(false)
+
     let params = useParams();
     let id = params._id;
-    const cookie = Cookies();
-    const token = cookie.get('token');
+
     useEffect(() => {
-        axios.get(`https://backfood2-1traner.onrender.com/api/product/${id}`, {
-            headers: {
-                'Authorization': `Bearer ${token} `
-            }
-        }).then((res) => setdetailsData(res.data))
-            .catch((err) => console.log(err))
-    }, [id])
+        setDetailsData(Data);
+    }, []);
 
-    const handleClose = () => setOpen(false)
-    const AddotBasket = (detailsData) => {
-        const cookie = Cookies();
-        const token = cookie.get('token');
-        axios.post('https://backfood2-1traner.onrender.com/api/cart/create', {
-            amount: detailsData.amount,
-            category: detailsData.category,
-            image: detailsData.image,
-            name: detailsData.name,
-            price: detailsData.price,
-            _id: detailsData._id,
-            description: detailsData.description
+    const findData = detailsData.find((ele) => ele.id === id);
+
+    useEffect(() => {
+        if (findData) {
+            setSelectedImage(findData.img_section_2 || findData.img_section_3 || findData.img_section_4 || findData.img_section_5 || findData.img_section_6 || findData.mainimg);
         }
-            , {
-                headers: {
-                    'Authorization': `Bearer ${token} `
-                }
-            }).then((res) => {
-                toast.success('🦄 لقد تم اضافه المنتج الي عربه التسوق بنجاح', {
-                    position: "top-right",
-                    autoClose: 5000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                    theme: "light",
-                });
-            }
-            )
-            .catch((err) => console.log(err))
-    }
-
-
+    }, [findData]);
 
     const ITEM_HEIGHT = 48;
     const ITEM_PADDING_TOP = 8;
@@ -111,13 +82,11 @@ const Details = () => {
         );
     };
 
-
     return (
-
-        <div className="top">
+        <div className="top" style={{ position: "relative", marginTop: "50px", border: "1px solid white" }}>
             <Container>
-                <PopSize handleClickOpen={handleClickOpen} handleClose={handleClose} open={open} />
-                <Row style={{ position: "relative", marginTop: "170px" }}>
+            <PopSize handleClickOpen={handleClickOpen} handleClose={handleClose} open={open} />
+                <Row style={{ position: "relative", marginTop: "200px" }}>
                     <Col xs="12" sm="12" md="5" xl="3">
                         <div className="right">
                             <p className="last">التوصيل والارجاع</p>
@@ -134,7 +103,6 @@ const Details = () => {
                                             if (selected.length === 0) {
                                                 return <em>Placeholder</em>;
                                             }
-
                                             return selected.join(', ');
                                         }}
                                         MenuProps={MenuProps}
@@ -168,7 +136,6 @@ const Details = () => {
                                             if (selected.length === 0) {
                                                 return <em>Placeholder</em>;
                                             }
-
                                             return selected.join(', ');
                                         }}
                                         MenuProps={MenuProps}
@@ -214,7 +181,6 @@ const Details = () => {
                                 </div>
                                 <div className="d-flex flex">
                                     <div>
-
                                         <h6>سياسة الارجاع</h6>
                                         <p> من تاريخ الشراء، مع ضرورة الإبلاغ عن وجود اي عيب ظاهر في خلال 48 ساعة، للإستثناءات والشروط راجع سياسة الإرجاع من هنا.تفاصيل</p>
                                     </div>
@@ -224,21 +190,14 @@ const Details = () => {
                         </div>
                     </Col>
 
-
                     <Col xs="12" sm="12" md="7" xl="9">
-                        {detailsData && (
+                        {selectedImage && (
                             <div className="content_right_left">
-
                                 <div className="left_product">
                                     <div>
                                         <div className="icon_action">
                                             <i class="fa-regular fa-heart heart"></i>
-                                       
                                         </div>
-                                        <h3>{detailsData.name}</h3>
-                                        <p>{detailsData.price}</p>
-                                        <p>{detailsData.description}</p>
-
                                         <div className="rating">
                                             <i class="fa-solid fa-star"></i>
                                             <i class="fa-solid fa-star"></i>
@@ -254,22 +213,17 @@ const Details = () => {
                                             <i class="fa-brands fa-square-twitter"></i>
                                             <i class="fa-brands fa-instagram"></i>
                                         </div>
-                                        <div className="btn_2" onClick={() => AddotBasket(detailsData)}><button>اضافه للسله</button></div>
-                                        <ToastContainer />
                                     </div>
                                 </div>
-                                <div className="right_product"><img src={detailsData.image} alt="" /></div>
+                                <div className="right_product"><img src={selectedImage} alt="" /></div>
                             </div>
                         )}
                     </Col>
 
                 </Row>
             </Container>
-            <Footer />
         </div>
     );
 };
 
-export default Details;
-
-
+export default DetailsGlopal;

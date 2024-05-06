@@ -21,16 +21,11 @@ const CreatProduct = () => {
     const [Category, setCategory] = useState("");
     const [image, setImage] = useState("");
     const [amount, setAmount] = useState("");
-
-
-
     const [id, setid] = useState(null)
-    
     const [dataUser, setdataUser] = useState([])
 
     const handleSelectedProductIdChange = () => {
         const finddata = dataUser.find((ele) => ele._id === id);
-
         if (finddata && finddata.image) {
             setImage(finddata.image);
             setName(finddata.name);
@@ -49,24 +44,44 @@ const CreatProduct = () => {
         e.preventDefault();
         const cookie = Cookies();
         const token = cookie.get('token');
-        axios.put(`https://backfood2-1traner.onrender.com/api/cart/update/${id}`, {
-            amount: amount,
-            category: Category,
-            description: desc,
-            price: price,
-            name: name,
-            _id: id,
-            image: image
-            , headers: {
-                'Authorization': `Bearer ${token} `
+        const formData = new FormData();
+        formData.append("name", name);
+        formData.append("description", desc);
+        formData.append("price", price);
+        formData.append("category", Category);
+        formData.append("amount", amount);
+        formData.append("image", image ? image : null); 
+    
+        axios.patch(`https://backfood2-1traner.onrender.com/api/cart/update/${id}`, formData, {
+            headers: {
+                'Authorization': `Bearer ${token}`
             }
-        }).then((res) => console.log(res))
-            .catch((err) => console.log(err))
-
-
+        }).then((res) => {
+            toast.success('🦄 لقد تم تعديل المنتج بنجاح', {
+            position: "bottom-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+        })
+      })
+            .catch((err) => {
+                toast.error(err.response.data.msg, {
+                    position: 'top-right',
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: 'light',
+                });
+            });
     };
-
-
+    
     const handelImage = (e) => {
         const imageFile = e.target.files[0];
         if (!imageFile) {
@@ -110,15 +125,25 @@ const CreatProduct = () => {
                     progress: undefined,
                     theme: "light",
                 });
-                reset();
+               
                 setTimeout(() => {
                     navhome("../content")
                 }, 1500);
             })
-            .catch((err) => console.log(err.res));
+
+            .catch((err) => {
+                toast.error(err.response.data.msg, {
+                    position: 'top-right',
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: 'light',
+                });
+            })
     };
-
-
 
 
     return (

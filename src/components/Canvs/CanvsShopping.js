@@ -31,16 +31,16 @@ function Canvs({ handleShow, handleClose, show }) {
                 'Authorization': `Bearer ${token} `
             }
         }).then((res) => {
-          
+
             setDatashopping(del => del.filter((ele) => ele._id !== id))
         })
     }
     return (
         <>
             <Offcanvas show={show} onHide={handleClose}>
-                <Offcanvas.Header closeButton>
-                    <Offcanvas.Title style={{background:"#d7a40d",width:"100%",position:"absolute", left:"0px",padding:"20px",color:"white", paddingTop:"40px",marginBottom:"20px"}}>Cart</Offcanvas.Title>
+                <Offcanvas.Header closeButton style={{ zIndex: "1111", Color: "white" }}>
                 </Offcanvas.Header>
+                <Offcanvas.Title style={{ background: "#d7a40d", width: "100%", position: "absolute", left: "0px", padding: "20px", color: "white", paddingTop: "40px", marginBottom: "20px" }}>Cart</Offcanvas.Title>
                 <Offcanvas.Body>
                     {datashopping && datashopping.length > 0 ? (
                         <>
@@ -48,11 +48,11 @@ function Canvs({ handleShow, handleClose, show }) {
                                 <div key={ele._id} className='show_cart'>
                                     <div className='flex'>
                                         <div>
-                                            <img src={ele.image} alt="" />
+                                            <img style={{ zIndex: "-1" }} src={ele.image} alt="" />
                                         </div>
                                         <div className='details_cart'>
-                                            <p style={{fontSize:"13px",margin:"auto"}}>{ele.name}</p>
-                                            <p style={{padding:"15px",color:"#d7a40d"}}>{ele.price}$</p>
+                                            <p style={{ fontSize: "13px", margin: "auto" }}>{ele.name}</p>
+                                            <p style={{ padding: "15px", color: "#d7a40d" }}>{ele.price}$</p>
                                         </div>
                                         <span onClick={() => deleteProduct(ele._id)}>X</span>
                                     </div>
@@ -62,8 +62,8 @@ function Canvs({ handleShow, handleClose, show }) {
                     ) : (
                         <img className='imge_no_products' src={shopping} alt="No Products" />
                     )}
-                    <Link style={{ textDecoration: 'none'}} to="/shopping">
-                    <button className='btn_shopping'>الزهاب الي عربه التسوق</button>
+                    <Link style={{ textDecoration: 'none' }} to="/shopping">
+                        <button className='btn_shopping'>الزهاب الي عربه التسوق</button>
                     </Link>
                 </Offcanvas.Body>
             </Offcanvas>

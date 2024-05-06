@@ -28,11 +28,11 @@ const Sign = () => {
                 password: password,
             })
                 .then((res) => {
-                    toast.success('🦄 لقد تم انشاء حساب بنجاح', {
+                    toast.success('🦄 لقد تم تسجيل دخولك بنجاح', {
                         position: "bottom-right",
                         autoClose: 5000,
                         hideProgressBar: false,
-                     
+                        closeOnClick: true,
                         pauseOnHover: true,
                         draggable: true,
                         progress: undefined,

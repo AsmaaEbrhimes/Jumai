@@ -18,6 +18,7 @@ import data from "../glopalData/GlopalData"
 import "./Product.css"
 import { Container, Col, Row } from "react-bootstrap"
 import Carousel from 'react-bootstrap/Carousel';
+import { Link } from "react-router-dom"
 
 
 const Products = () => {
@@ -85,7 +86,10 @@ const Products = () => {
                     <div className="mainstyle flex_img_section">
                         {data.map((item, index) => (
                             <div key={index}>
-                                <img className="img2" src={item.img_section_2} alt="" />
+                                <Link to={`/detailsGlopal/${item.id}`}>
+                                    <img className="img2" src={item.img_section_2} alt="" />
+                                </Link>
+
                             </div>
                         ))}
                     </div>
@@ -94,7 +98,9 @@ const Products = () => {
                     <div className="mainstyle flex_img_section">
                         {data.map((item, index) => (
                             <div key={index} >
-                                <img className="img2" src={item.img_section_3} alt="" />
+                                <Link to={`/detailsGlopal/${item.id}`}>
+                                    <img className="img2" src={item.img_section_3} alt="" />
+                                </Link>
                             </div>
                         ))}
                     </div>
@@ -102,7 +108,9 @@ const Products = () => {
                     <div className="mainstyle flex_img_section">
                         {data.map((item, index) => (
                             <div key={index}>
-                                <img style={{ width: "95%" }} src={item.img_section_4} alt="" />
+                                <Link to={`/detailsGlopal/${item.id}`}>
+                                    <img style={{ width: "95%" }} src={item.img_section_4} alt="" />
+                                </Link>
                             </div>
                         ))}
                     </div>
@@ -111,7 +119,9 @@ const Products = () => {
                     <div className="mainstyle flex_img_section">
                         {data.map((item, index) => (
                             <div key={index} xs="4" sm="4" md="1">
-                                <img style={{ width: "80%" }} className="img2" src={item.img_section_5} alt="" />
+                                <Link to={`/detailsGlopal/${item.id}`}>
+                                    <img style={{ width: "80%" }} className="img2" src={item.img_section_5} alt="" />
+                                </Link>
                             </div>
                         ))}
                     </div>
@@ -120,7 +130,9 @@ const Products = () => {
                     <div className="mainstyle flex_img_section">
                         {data.map((item, index) => (
                             <div key={index} xs="4" sm="4" md="1">
-                                <img style={{ width: "85%" }} className="img2" src={item.img_section_6} alt="" />
+                                <Link to={`/detailsGlopal/${item.id}`}>
+                                    <img style={{ width: "85%" }} className="img2" src={item.img_section_6} alt="" />
+                                </Link>
                             </div>
                         ))}
                     </div>
@@ -132,7 +144,7 @@ const Products = () => {
 
 
                 </Container>
-            </div>
+            </div >
         </>
     )
 }

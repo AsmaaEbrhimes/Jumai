@@ -21,7 +21,8 @@ body {
 }
 
 .list_content li {
-    margin-bottom: 4px;
+    margin-bottom: 9px;
+
     transition: 0.3s linear;
 }
 

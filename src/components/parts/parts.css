@@ -1,9 +1,14 @@
 .content_product_api {
     background-color: white;
+   
     position: relative;
     top: 10px;
     margin-bottom: 20px;
+  
     padding: 10px;
+
+    text-align: right;
+    right: 0;
 }
 
 .product_item_api {
@@ -14,6 +19,7 @@
     cursor: pointer;
     padding: 20px;
     border-radius: 10px;
+  margin-top: 50px;
     transition: 0.3s linear;
 }
 
@@ -28,14 +34,14 @@
 }
 
 .product_item_image_api {
-    width: 70%;
+    width: 80%;
 }
 
 
 @media (min-width:320px) and (max-width:767px) {
     .content_product_api {
         position: relative;
-        margin-top: 50px;
+        margin-top: 30px;
     }
 
     .product_item_api {
@@ -47,3 +53,11 @@
 
     }
 }
+
+@media (min-width:767px) and (max-width:1200px){
+    .content_product_api {
+        position: relative;
+        top: 50px;
+    }
+}
+

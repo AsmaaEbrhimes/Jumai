@@ -4,32 +4,65 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Cookies from "cookie-universal";
 import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
 import "./update.css"
 
-function MyVerticallyCenteredModal({ datauser, ...props }) {
-    const [name, setName] = useState("")
-    const [emailUpdate, setEmailUpdate] = useState("")
-    const [phoneupdate, setPhoneupdate] = useState("")
+function MyVerticallyCenteredModal({ datauser, handleUpdate, ...props }) {
+    const [name, setName] = useState("");
+    const [emailUpdate, setEmailUpdate] = useState("");
+    const [phoneupdate, setPhoneupdate] = useState("");
+    const [role, setRole] = useState("");
+useEffect(() => {
+    setName(datauser?.userName)
+    setEmailUpdate(datauser?.email)
+    setPhoneupdate(datauser?.phone)
+}, [])
+  
 
     const cookie = Cookies();
     const token = cookie.get('token');
-
     const id = datauser ? datauser._id : null;
 
     const UpdateDataUser = (e) => {
         e.preventDefault();
-        axios.put(`https://backfood2-1traner.onrender.com/api/user/update/${id}`, {
+        const userData = {
             _id: datauser._id,
             userName: name,
             email: emailUpdate,
-            phone: phoneupdate
-        }, {
+            phone: phoneupdate,
+            role: role
+        };
+
+        axios.patch(`https://backfood2-1traner.onrender.com/api/user/update/${id}`, userData, {
             headers: {
                 'Authorization': `Bearer ${token} `
             }
-        }).then((res) => console.log(res))
-          .catch((err) => console.log(err))
-    }
+        }).then((res) => {
+            toast.success('🦄 لقد تم تعديل المنتج بنجاح', {
+                position: "bottom-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            })
+            handleUpdate();
+            props.onHide();
+        }).catch((err) => {
+            toast.error(err.response.data.msg, {
+                position: 'top-right',
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: 'light',
+            });
+        });
+    };
 
     if (!datauser) {
         return null;
@@ -48,12 +81,19 @@ function MyVerticallyCenteredModal({ datauser, ...props }) {
             <Modal.Body>
                 <form onSubmit={UpdateDataUser} className='form_update'>
                     <label>Enter Your Name</label>
-                    <input value={datauser.userName} onChange={(e) => setName(e.target.value)} type="text" />
+                    <input value={name} selected onChange={(e) => setName(e.target.value)} type="text" />
                     <label>Enter Your Email</label>
-                    <input value={datauser.email} onChange={(e) => setEmailUpdate(e.target.value)} type="email" required />
+                    <input value={emailUpdate} onChange={(e) => setEmailUpdate(e.target.value)} type="email" required />
                     <label>Enter Your Phone</label>
-                    <input value={datauser.phone} onChange={(e) => setPhoneupdate(e.target.value)} type="number" />
+                    <input value={phoneupdate} onChange={(e) => setPhoneupdate(e.target.value)} type="number" />
+
+                    <select onChange={(e) => setRole(e.target.value)}>
+                        <option selected>None</option>
+                        <option value="admin">ADMIN</option>
+                        <option value="user">USER</option>
+                    </select>
                     <button className='btn_update' type='submit'>Update</button>
+                    <ToastContainer />
                 </form>
             </Modal.Body>
             <Modal.Footer>
@@ -63,7 +103,7 @@ function MyVerticallyCenteredModal({ datauser, ...props }) {
     );
 }
 
-function UpdataPopup({ onHide, modalShow, id }) {
+function UpdataPopup({ onHide, modalShow, id, handleUpdate }) {
     const [datauser, setDatauser] = useState(null)
     const cookie = Cookies();
     const token = cookie.get('token');
@@ -74,8 +114,22 @@ function UpdataPopup({ onHide, modalShow, id }) {
                 headers: {
                     'Authorization': `Bearer ${token} `
                 }
-            }).then((res) => setDatauser(res.data))
-              .catch((err) => console.log(err))
+            }).then((res) => {
+                setDatauser(res.data)
+
+            })
+                .catch((err) => {
+                    toast.error(err.response.data.msg, {
+                        position: 'top-right',
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: 'light',
+                    });
+                })
         }
     }, [modalShow, id, token]);
 
@@ -85,9 +139,36 @@ function UpdataPopup({ onHide, modalShow, id }) {
                 datauser={datauser}
                 show={modalShow}
                 onHide={onHide}
+                handleUpdate={handleUpdate}
             />
         </>
     );
 }
 
 export default UpdataPopup;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

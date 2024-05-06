@@ -10,6 +10,7 @@ import Details from "./components/detalisProduct/Details"
 import Shopping from "./components/Shopphing/Shopping"
 import UpdataPopup from "./components/updates/update"
 import Footer from "./components/Footer/Footer"
+import DetailsGlopal from "./components/DetailsGlopal/DetailsGlopal"
 import { useTranslation } from 'react-i18next';
 import PartsApi from "./components/parts/PartsApi"
 import Beatuy from "./components/beatuy/Beatuy"
@@ -24,8 +25,20 @@ import Supmarket from "./components/supmarket/Supmarket"
 import AcceroiesMopile from "./components/AcceroiesMopile/AcceroiesMopile"
 import Creat from "./components/creat/Creat"
 import AllMail from "./components/Allmail/AllMail"
+import TabelRequests from "./components/Requests/Requests"
+import AcseptMale from "./components/Acsept/Acsept"
+import RejectMale from "./components/Reject/Rejects"
+import OrderUser from "./components/Order/Order"
+import PaypalButtons from "./components/Paypal/Paypal"
+import GoogleMap from "./components/googleMap/GoogleMap"
 
+import Cookies from "cookie-universal";
+import {jwtDecode} from "jwt-decode"
 function App() {
+  const cookie = Cookies();
+  const token = cookie.get('token');
+  const decode= token?jwtDecode(token):{Permissions:[]}
+
   const { i18n } = useTranslation();
   const changeAr = () => {
     i18n.changeLanguage('ar')
@@ -60,10 +73,24 @@ function App() {
         </>
       }
       />
+
+      <Route path="/detailsGlopal/:_id" element={
+
+        <>
+         <Header changeAr={changeAr} changeEn={changeEn} />
+          <DetailsGlopal />
+          <Footer />
+        </>
+      } />
+
+
       <Route path="/login" element={<Sigin />} />
+      <Route path="/paypal" element={<PaypalButtons />} />
+      <Route path="/map" element={<GoogleMap />} />
 
 
-      <Route path="/Dashbord" element={<Dashbord />} />
+
+     {decode.role==="admin"&&<Route path="/Dashbord" element={<Dashbord />} />}
 
 
       <Route path="/shopping" element={
@@ -76,6 +103,10 @@ function App() {
       <Route path="/updata" element={<UpdataPopup />} />
       <Route path="/creat" element={<Creat />} />
       <Route path="/allmail" element={<AllMail />} />
+      <Route path="/tabelRequests" element={<TabelRequests />} />
+      <Route path="/accseptMale" element={<AcseptMale />} />
+      <Route path="/rejectMale" element={<RejectMale />} />
+      <Route path="/orderUser" element={<OrderUser />} />
 
 
 
@@ -92,7 +123,6 @@ function App() {
       <Route path="/schoolBag" element={<SchoolBag />} />
       <Route path="/supmarket" element={<Supmarket />} />
       <Route path="/acceroiesMopile" element={<AcceroiesMopile />} />
-
     </Routes>
   )
 }

@@ -1,0 +1,30 @@
+.btn_male {
+    position: relative;
+    text-align: right;
+}
+
+.btn_male button:first-child {
+    background-color: green;
+    border: none;
+    padding: 5px 15px;
+    color: white;
+    margin-right: 5px;
+    border-radius: 5px;
+    transition: 0.3s linear;
+}
+.btn_male button:first-child:hover{
+    background-color: rgb(105, 171, 7);
+}
+
+.btn_male button:last-child {
+    background-color: red;
+    border: none;
+    padding: 5px 15px;
+    color: white;
+    margin-right: 10px;
+    border-radius: 5px;
+    transition: 0.3s linear;
+}
+.btn_male button:last-child:hover{
+    background-color: rgb(232, 129, 129);
+}

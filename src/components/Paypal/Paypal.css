@@ -1,0 +1,16 @@
+.word_paypal span{
+    display: inline-block;
+    position: relative;
+    padding-right: 16px;
+    color: rgb(128, 125, 125);
+}
+
+
+@media(min-width:320px) and (max-width:767px){
+    .one_col_pay{
+        top: -100px;
+        position: relative;
+        margin: auto;
+        text-align: center;
+    }
+}

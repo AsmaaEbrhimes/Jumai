@@ -1,6 +1,6 @@
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import { useState } from 'react';
+import { useState , useEffect } from 'react';
 import img_winter from "../../Image/smiley-girl-holding-shopping-bags_23-2148610219.jpg"
 import "./Sharinh.css"
 function MyVerticallyCenteredModal(props) {
@@ -38,13 +38,21 @@ function MyVerticallyCenteredModal(props) {
     );
 }
 
+
+
 function Sgaring() {
-    const [modalShow, setModalShow] = useState(true);
+    const [modalShow, setModalShow] = useState(false);
+
+    useEffect(() => {
+        const isPopupShown = sessionStorage.getItem('isPopupShown');
+        if (!isPopupShown) {
+            setModalShow(true);
+            sessionStorage.setItem('isPopupShown', true);
+        }
+    }, []);
 
     return (
         <>
-
-
             <MyVerticallyCenteredModal
                 show={modalShow}
                 onHide={() => setModalShow(false)}

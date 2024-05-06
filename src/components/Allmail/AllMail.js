@@ -25,30 +25,30 @@ import "./allmail.css"
 
 function createData(name, calories, fat, carbs, protein, price) {
     return {
-      name,
-      calories,
-      fat,
-      carbs,
-      protein,
-      price,
-      history: [
-        {
-          date: '2020-01-05',
-          customerId: '11091700',
-          amount: 3,
-        },
-        {
-          date: '2020-01-02',
-          customerId: 'Anonymous',
-          amount: 1,
-        },
-      ],
+        name,
+        calories,
+        fat,
+        carbs,
+        protein,
+        price,
+        history: [
+            {
+                date: '2020-01-05',
+                customerId: '11091700',
+                amount: 3,
+            },
+            {
+                date: '2020-01-02',
+                customerId: 'Anonymous',
+                amount: 1,
+            },
+        ],
     };
-  }          
+}
 
 function Row({ user }) {
     const [open, setOpen] = useState(false);
-    const [userData, setUserData] = useState(null); 
+    const [userData, setUserData] = useState(null);
     useEffect(() => {
         if (open) {
             const cookie = Cookies();
@@ -59,17 +59,17 @@ function Row({ user }) {
                     'Authorization': `Bearer ${token}`
                 }
             })
-            .then((res) => {
-                setUserData(res.data);
-            })
-            .catch((err) => console.log(err));
+                .then((res) => {
+                    setUserData(res.data);
+                })
+                .catch((err) => console.log(err));
         }
     }, [open, user.id]);
 
     return (
         <React.Fragment>
             <TableRow sx={{ '& > *': { borderBottom: 'unset' } }}>
-                <TableCell>
+                <TableCell style={{ position: "relative", marginTop: "100px" }}>
                     <IconButton
                         aria-label="expand row"
                         size="small"
@@ -85,7 +85,7 @@ function Row({ user }) {
                 <TableCell align="right">{user.phone}</TableCell>
                 <TableCell align="right">{user.date}</TableCell>
             </TableRow>
-            <TableRow>
+            <TableRow >
                 <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
                     <Collapse in={open} timeout="auto" unmountOnExit>
                         <Box sx={{ margin: 1 }}>
@@ -123,9 +123,6 @@ function Row({ user }) {
 }
 
 
-
-
-
 Row.propTypes = {
     user: PropTypes.shape({
         name: PropTypes.string.isRequired,
@@ -161,13 +158,13 @@ export default function AllMail() {
     }, []);
 
     return (
-        <div style={{ background: "antiquewhite" }}>
+        <div style={{position:"relative",marginTop:"200px"}}>
             <Header />
-            
+
             <Container>
-                <TableContainer className='overlay_content' component={Paper}style={{position:"relative",marginTop:"200px"}}>
-                    <Table aria-label="collapsible table">
-                        <TableHead>
+                <TableContainer className='overlay_content' component={Paper}>
+                    <Table aria-label="collapsible table"style={{position:"relative",marginTop:"200px"}}>
+                        <TableHead style={{position:"relative",marginTop:"200px"}}>
                             <TableRow>
                                 <TableCell />
                                 <TableCell align="left">UserName</TableCell>
@@ -188,6 +185,26 @@ export default function AllMail() {
         </div>
     );
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -14,6 +14,7 @@ import StorefrontIcon from '@mui/icons-material/Storefront';
 import AttachEmailIcon from '@mui/icons-material/AttachEmail';
 import LogoutIcon from '@mui/icons-material/Logout';
 import Cookies from "cookie-universal";
+import RequestPageIcon from '@mui/icons-material/RequestPage';
 
 
 
@@ -53,9 +54,9 @@ const Logout=()=>{
                 </div>
 
                 <div className='flex flex_item_setting' style={{ position: "relative", marginTop: "20px" }}>
-                    <PersonAddAltIcon style={{ color: "brown" }} />
-                    <Link style={{ textDecoration: 'none', marginBottom: "20px" }} to="/login">
-                        <h5 style={{ color: 'black' }}>login</h5>
+                    <RequestPageIcon style={{ color: "brown" }} />
+                    <Link style={{ textDecoration: 'none', marginBottom: "20px" }} to="/tabelRequests">
+                        <h5 style={{ color: 'black' }}>Requests</h5>
                     </Link>
                 </div>
 
@@ -75,7 +76,7 @@ const Logout=()=>{
 
                 <div className='flex flex_item_setting' style={{ position: "relative", marginTop: "20px" }}>
                     <AttachEmailIcon style={{ color: "brown" }} />
-                    <Link style={{ textDecoration: 'none', marginBottom: "20px" }} to="/Dashbord">
+                    <Link style={{ textDecoration: 'none', marginBottom: "20px" }} to="/allmail">
                         <h5 style={{ color: 'black' }}>All Mail</h5>
                     </Link>
                 </div>
