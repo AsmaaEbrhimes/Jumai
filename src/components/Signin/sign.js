@@ -68,7 +68,7 @@ const Sign = () => {
 
                     {accept && password.length < 8 && <p style={{ color: "red" }}>password must be more than 8 char</p>}
                     <div className="btn_supmit">
-                        <button type="submit">Login</button>
+                        <button className="btn_s" type="submit">Login</button>
                         <ToastContainer />
                         <Link style={{ textDecoration: 'none' }} to="/"><h6 className="font">I don't have an account</h6></Link>
                     </div>

@@ -84,7 +84,7 @@ const Signup = () => {
                     </div>
                     {accept && password.length < 8 && <p style={{ color: "red" }}>password must be more than 8 char</p>}
                     <div className="btn_supmit">
-                        <button type="submit">Register</button>
+                        <button className="btn_s" type="submit">Register</button>
                         <ToastContainer />
                         <Link style={{ textDecoration: 'none' }} to="/login"><h6 className="font">Already have an account</h6></Link>
                     </div>

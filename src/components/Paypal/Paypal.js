@@ -3,6 +3,7 @@ import { useEffect } from "react"
 import payment from "../../Image/payments_3_1_200x.avif"
 import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 import "./Paypal.css"
+
 const PaypalButtons = () => {
     useEffect(() => {
         window.paypal.Buttons({
@@ -23,8 +24,8 @@ const PaypalButtons = () => {
         }).render('#paypal-button')
 
     }, [])
+    
     return (
-
         <Container>
             <Row style={{ position: "relative", marginTop: "200px" }}>
                 <Col xs="12" md="6" className="one_col_pay">

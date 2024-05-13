@@ -60,17 +60,7 @@ const Shopping = ({ valuerange }) => {
     }
 
     const deleteProductAll = () => {
-        const idsToDelete = showcart.map((ele) => ele._id)
-        // console.log(idsToDelete)
-        setProductIds(idsToDelete)
-        console.log(productIds)
-        axios.delete("https://backfood2-1traner.onrender.com/api/cart/deleteAll", {
-            _id:productIds,
-            headers: {
-                'Authorization': `Bearer ${token} `
-            }
-        }).then((res) => console.log(res.data))
-            .catch((err) => console.log(err))
+        setShowcart([])
     }
 
 

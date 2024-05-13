@@ -76,7 +76,7 @@ form label {
     margin-right: 0px
 }
 
-.btn_supmit button {
+.btn_supmit .btn_s {
     position: relative;
     display: block;
     text-align: center;
