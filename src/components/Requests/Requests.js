@@ -1,6 +1,4 @@
 
-
-
 import * as React from 'react';
 import axios from 'axios';
 import Cookies from "cookie-universal";
@@ -20,6 +18,7 @@ import HelpIcon from '@mui/icons-material/Help';
 import AcseptMale from "../Acsept/Acsept"
 import RejectMale from "../Reject/Rejects"
 import OrderUser from "../Order/Order"
+
 const VirtuosoTableComponents = {
     Scroller: React.forwardRef((props, ref) => (
         <TableContainer component={Paper} {...props} ref={ref} />
@@ -62,7 +61,6 @@ export default function TabelRequests() {
     const [OpenModelReject, setOpenModelReject] = useState(false);
     const [OpenModelOrder, setOpenModelOrder] = useState(false);
 
-
     useEffect(() => {
         const cookie = Cookies();
         const token = cookie.get('token');
@@ -78,8 +76,6 @@ export default function TabelRequests() {
             .catch((err) => console.log(err));
     }, []);
 
-
-
     const showModelAccept = (id) => {
         setIdMale(id)
         setOpenModelAcept(true)
@@ -89,9 +85,10 @@ export default function TabelRequests() {
         setIdMale(id)
         setOpenModelReject(true)
     }
+
     const ShowModelOrder = (id) => {
         setIdMale(id)
-        setOpenModelOrder(true)
+        setOpenModelOrder(false)
     }
 
     const closeModelAccept = () => setOpenModelAcept(false)
@@ -100,20 +97,13 @@ export default function TabelRequests() {
 
     function rowContent(_index, row) {
         return (
-            <React.Fragment>
+            <TableRow key={row._id}>
                 {columns.map((column) => (
-                    <TableCell
-                        key={column.dataKey}
-                        align={column.numeric || false ? 'right' : 'left'}
-                    >
+                    <TableCell key={column.dataKey} align={column.numeric || false ? 'right' : 'left'}>
                         {row[column.dataKey]}
-
                     </TableCell>
                 ))}
-                <HelpIcon onClick={() => ShowModelOrder(row._id)} style={{ color: "green", marginRight: "20px", cursor: "pointer" }} />
-                <button onClick={() => showModelAccept(row._id)} style={{ background: "green", color: "white", padding: "5px", border: "none", borderRadius: '5px', marginRight: "10px", cursor: "pointer" }}>Accept</button>
-                <button onClick={() => ShowModelReject(row._id)} style={{ background: "red", color: "white", padding: "5px", border: "none", borderRadius: '5px', cursor: "pointer" }}>Reject</button>
-            </React.Fragment>
+            </TableRow>
         );
     }
 
@@ -125,8 +115,9 @@ export default function TabelRequests() {
                     <OrderUser IdMale={IdMale} users={users} closeModelOrder={closeModelOrder} OpenModelOrder={OpenModelOrder} />
                     <RejectMale closeModelReject={closeModelReject} OpenModelReject={OpenModelReject} />
                     <AcseptMale closeModelAccept={closeModelAccept} OpenModelAcept={OpenModelAcept} />
-                        <Paper style={{ height: 400, width: '100%', position: "relative", marginTop: "200px", minHeight: "400px", marginBottom: "100PX" }}>
-                            <Table style={{  overflowX: "auto" }}>
+                    <Paper style={{ height: 400, width: '100%', position: "relative", marginTop: "200px", minHeight: "400px", marginBottom: "100PX", overflowX: "auto" }}>
+                        <div style={{ minWidth: '100%' }}>
+                            <Table style={{ width: '100%' }}>
                                 <TableHead>
                                     <TableRow>
                                         {columns.map((column) => (
@@ -136,20 +127,41 @@ export default function TabelRequests() {
                                         ))}
                                     </TableRow>
                                 </TableHead>
+                                <TableBody>
+                                    {users.map((row, index) => (
+                                        <TableRow key={index}>
+                                            {columns.map((column) => (
+                                                <TableCell key={column.dataKey} align={column.numeric || false ? 'right' : 'left'}>
+                                                    {row[column.dataKey]}
+                                                </TableCell>
+                                            ))}
+                                             <TableCell align="center">
+                                                <HelpIcon onClick={() => ShowModelOrder(row._id)} style={{ color: "green", cursor: "pointer" }} />
+                                            </TableCell>
+
+                                            <TableCell align="center">
+                                                <button onClick={() => ShowModelReject(row._id)} style={{ background: "red", color: "white", padding: "5px", border: "none", borderRadius: '5px', cursor: "pointer" }}>Reject</button>
+                                            </TableCell>
+                                           
+                                            <TableCell align="center">
+                                                <button onClick={() => showModelAccept(row._id)} style={{ background: "green", color: "white", padding: "5px", border: "none", borderRadius: '5px', cursor: "pointer" }}>Accept</button>
+                                            </TableCell>
+
+                                        </TableRow>
+                                    ))}
+                                </TableBody>
                             </Table>
-                            <TableVirtuoso
+                        </div>
+                        <TableVirtuoso
 
-                                data={users}
-                                components={VirtuosoTableComponents}
-                                itemContent={rowContent}
-                            />
-                        
-                        </Paper>
-                    
-
+                            data={users}
+                            components={VirtuosoTableComponents}
+                            itemContent={rowContent}
+                        />
+                    </Paper>
                 </Container>
-                </div>
-                <Footer />
-            </>
-            );
+            </div>
+            <Footer />
+        </>
+    );
 }

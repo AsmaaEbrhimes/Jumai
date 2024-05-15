@@ -179,21 +179,15 @@ p {
         position: relative;
         top: 20px;
     }
-    .right_product img {
-        flex-basis: 1;
-    }
+   
 
     .content_right_left {
-        flex-direction: column;
+      
+        justify-content: center;
     }
 
-    .right_product img {
-        position:absolute;
-        width: 100px;
-        height: 200px;
-        top: 30px;
-        right: 10px;
-        order: 1;
+    .right_product img {   
+        display: none;
     }
 
 
@@ -201,7 +195,6 @@ p {
         position: relative;
         top: -30px;
         width: 90%;
-        right: 30px;
     }
     .icon_share{
         position: relative;
@@ -219,16 +212,17 @@ p {
 
     .left_product .btn_2 button {
         position: relative;
-        top: -20px;
+        top: -50px;
+
     }
 
     .right_product img {
         position:absolute;
-        width: 180px;
-        height: 180px;
+        width: 150px;
+        height: 150px;
         top: 100px;
         right: 10px;
-        order: 1;
+       
     }
 
     .icon_share{

@@ -163,8 +163,8 @@ export default function AllMail() {
 
             <Container>
                 <TableContainer className='overlay_content' component={Paper}>
-                    <Table aria-label="collapsible table"style={{position:"relative",marginTop:"200px"}}>
-                        <TableHead style={{position:"relative",marginTop:"200px"}}>
+                    <Table aria-label="collapsible table"style={{position:"relative"}}>
+                        <TableHead style={{position:"relative"}}>
                             <TableRow>
                                 <TableCell />
                                 <TableCell align="left">UserName</TableCell>
