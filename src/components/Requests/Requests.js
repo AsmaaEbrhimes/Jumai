@@ -97,13 +97,9 @@ export default function TabelRequests() {
 
     function rowContent(_index, row) {
         return (
-            <TableRow key={row._id}>
-                {columns.map((column) => (
-                    <TableCell key={column.dataKey} align={column.numeric || false ? 'right' : 'left'}>
-                        {row[column.dataKey]}
-                    </TableCell>
-                ))}
-            </TableRow>
+            <>
+            </>
+          
         );
     }
 
