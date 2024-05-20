@@ -88,7 +88,7 @@ export default function TabelRequests() {
 
     const ShowModelOrder = (id) => {
         setIdMale(id)
-        setOpenModelOrder(false)
+        setOpenModelOrder(true)
     }
 
     const closeModelAccept = () => setOpenModelAcept(false)
@@ -102,7 +102,6 @@ export default function TabelRequests() {
           
         );
     }
-
     return (
         <>
             <Header />

@@ -13,14 +13,10 @@ export default function OrderUser({ IdMale, users, closeModelOrder, OpenModelOrd
         closeModelOrder()
     };
 
-
-
-
     const checkOrder = () => {
         const cookie = Cookies();
         const token = cookie.get('token');
         const finduser = users.find((ele) => ele._id === IdMale);
-
         if (finduser) {
             axios.get("https://backfood2-1traner.onrender.com/api/orders/checkout", {
                 params: {

@@ -1,4 +1,4 @@
-
+import { useState } from "react"
 import Signup from "./components/SignUp/Signup"
 import Sigin from "./components/Signin/sign"
 import Dashbord from "./components/Dashboard/Dashbord"
@@ -31,10 +31,11 @@ import RejectMale from "./components/Reject/Rejects"
 import OrderUser from "./components/Order/Order"
 import PaypalButtons from "./components/Paypal/Paypal"
 import GoogleMap from "./components/googleMap/GoogleMap"
-
 import Cookies from "cookie-universal";
 import {jwtDecode} from "jwt-decode"
 function App() {
+  const [Total, setTotal] = useState("")
+  const [Cart, setCart] = useState("")
   const cookie = Cookies();
   const token = cookie.get('token');
   const decode= token?jwtDecode(token):{Permissions:[]}
@@ -85,7 +86,7 @@ function App() {
 
 
       <Route path="/login" element={<Sigin />} />
-      <Route path="/paypal" element={<PaypalButtons />} />
+      <Route path="/paypal" element={<PaypalButtons Total={Total} Cart={Cart}/>} />
       <Route path="/map" element={<GoogleMap />} />
 
 
@@ -96,7 +97,7 @@ function App() {
       <Route path="/shopping" element={
         <>
           <Header changeAr={changeAr} changeEn={changeEn} />
-          <Shopping />
+          <Shopping setTotal={setTotal} setCart={setCart}/>
         </>
       }
       />

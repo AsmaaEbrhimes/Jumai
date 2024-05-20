@@ -180,21 +180,29 @@ p {
         top: 20px;
     }
    
-
     .content_right_left {
-      
         justify-content: center;
+        flex-direction: column;
     }
 
     .right_product img {   
-        display: none;
+        height: 100px;
+        width: 100px;
+        position: absolute;
+        top: 160px;
+        right: 10px;
     }
 
 
     .left_product .btn_2 button {
         position: relative;
-        top: -30px;
         width: 90%;
+        top:30px;
+        margin: auto;
+        text-align: center;
+        display: block;
+        position: relative;
+        margin-right: 30px;
     }
     .icon_share{
         position: relative;
@@ -213,6 +221,7 @@ p {
     .left_product .btn_2 button {
         position: relative;
         top: -50px;
+
 
     }
 

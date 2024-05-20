@@ -36,7 +36,7 @@ const ToolSports = () => {
     const handleChange = (event, newValue) => {
         setValue(newValue);
         const filterCategoryByPrice = productbalon.filter((ele) => {
-            return ele.price <= value[0] 
+            return ele.price <= value[0]
         });
         setproductbalon(filterCategoryByPrice);
     };
@@ -126,30 +126,30 @@ const ToolSports = () => {
                                 return (
                                     <Col key={item._id} xs={6} md={4} lg={3}>
                                         <div className="product_item_api">
-                                            <Link key={item._id} to={`/Details/${item._id}`}>
+                                            <Link style={{ textDecoration: "none" }} key={item._id} to={`/Details/${item._id}`}>
                                                 <img className="product_item_image_api" src={item.image} alt={item.description} />
-                                            </Link>
 
-                                            <Box sx={{
-                                                width: '100%',
-                                                '& .MuiSlider-root': {
-                                                    color: 'yellow',
-                                                },
-                                                marginTop: "30px",
-                                                textAlign: "center",
-                                                marginLeft: "auto",
-                                                marginBottom: "10px",
-                                            }}>
-                                                <Slider
-                                                    value={qty[item._id]}
-                                                    valueLabelDisplay="on"
-                                                    min={300}
-                                                    max={500}
-                                                    onChange={(event, newValue) => handleSliderChange(item._id, newValue)}
-                                                />
-                                            </Box>
-                                            <p>{item.description}</p>
-                                            <p>{item.price}</p>
+                                                <Box sx={{
+                                                    width: '100%',
+                                                    '& .MuiSlider-root': {
+                                                        color: 'yellow',
+                                                    },
+                                                    marginTop: "30px",
+                                                    textAlign: "center",
+                                                    marginLeft: "auto",
+                                                    marginBottom: "10px",
+                                                }}>
+                                                    <Slider
+                                                        value={qty[item._id]}
+                                                        valueLabelDisplay="on"
+                                                        min={300}
+                                                        max={500}
+                                                        onChange={(event, newValue) => handleSliderChange(item._id, newValue)}
+                                                    />
+                                                </Box>
+                                                <p>{item.description}</p>
+                                                <p>{item.price}</p>
+                                            </Link>
                                         </div>
                                     </Col>
                                 );

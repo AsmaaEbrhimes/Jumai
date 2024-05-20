@@ -1,5 +1,5 @@
 
-import React,{ useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Row, Col, Container } from "react-bootstrap";
 import Header from "../header/header"
@@ -33,23 +33,23 @@ const Beatuy = () => {
     const handleChange = (event, newValue) => {
         setValue(newValue);
         const filterCategoryByPrice = productbalon.filter((ele) => {
-            return ele.price < value[0] 
+            return ele.price < value[0]
         });
         setproductbalon(filterCategoryByPrice);
     };
 
     const ReverDate = (order) => {
-    if(order === "الاسم من أ-ي"){
-     const sortData=filterBeatuyByCategore.reverse()
-     setproductbalon(sortData);
-    }
+        if (order === "الاسم من أ-ي") {
+            const sortData = filterBeatuyByCategore.reverse()
+            setproductbalon(sortData);
+        }
     }
 
-    const sortrDate=(order)=>{
-        if(order === "الاسم من أ-ي"){
-            const sortData=filterBeatuyByCategore.reverse()
+    const sortrDate = (order) => {
+        if (order === "الاسم من أ-ي") {
+            const sortData = filterBeatuyByCategore.reverse()
             setproductbalon(sortData);
-           }
+        }
     }
     return (
         <>
@@ -79,7 +79,7 @@ const Beatuy = () => {
                                             getAriaLabel={() => 'Temperature range'}
                                             valueLabelDisplay="on"
                                             value={value}
-                                            min={300}  
+                                            min={300}
                                             max={600}
                                             onChange={handleChange}
                                         />
@@ -105,9 +105,9 @@ const Beatuy = () => {
                                 </AccordionSummary>
 
                                 <AccordionDetails>
-                                    <div style={{  position: "relative", margin: "auto", textAlign: "center"}}>
-                                    <button style={{border:"1px solid yellow",position: "relative",padding: "10px" }} onClick={()=>sortrDate("الاسم من أ-ي")}>ظهور اخر منتجات</button>
-                                    <button style={{border:"1px solid yellow",position: "relative",padding: "10px" }} onClick={()=>ReverDate("الاسم من أ-ي")}>ظهور اول منتجات</button>
+                                    <div style={{ position: "relative", margin: "auto", textAlign: "center" }}>
+                                        <button style={{ border: "1px solid yellow", position: "relative", padding: "10px" }} onClick={() => sortrDate("الاسم من أ-ي")}>ظهور اخر منتجات</button>
+                                        <button style={{ border: "1px solid yellow", position: "relative", padding: "10px" }} onClick={() => ReverDate("الاسم من أ-ي")}>ظهور اول منتجات</button>
                                     </div>
 
                                 </AccordionDetails>
@@ -123,30 +123,31 @@ const Beatuy = () => {
                                 return (
                                     <Col key={item._id} xs={6} md={4} lg={3}>
                                         <div className="product_item_api">
-                                            <Link key={item._id} to={`/Details/${item._id}`}>
+                                            <Link style={{ textDecoration: "none" }} key={item._id} to={`/Details/${item._id}`}>
                                                 <img className="product_item_image_api" src={item.image} alt={item.description} />
-                                            </Link>
 
-                                            <Box sx={{
-                                                width: '100%',
-                                                '& .MuiSlider-root': {
-                                                    color: 'yellow',
-                                                },
-                                                marginTop: "30px",
-                                                textAlign: "center",
-                                                marginLeft: "auto",
-                                                marginBottom: "10px",
-                                            }}>
-                                                <Slider
-                                                    value={qty[item._id]}
-                                                    valueLabelDisplay="on"
-                                                    min={0}
-                                                    max={100}
-                                                    onChange={(event, newValue) => handleSliderChange(item._id, newValue)}
-                                                />
-                                            </Box>
-                                            <p>{item.description}</p>
-                                            <p>{item.price}</p>
+
+                                                <Box sx={{
+                                                    width: '100%',
+                                                    '& .MuiSlider-root': {
+                                                        color: 'yellow',
+                                                    },
+                                                    marginTop: "30px",
+                                                    textAlign: "center",
+                                                    marginLeft: "auto",
+                                                    marginBottom: "10px",
+                                                }}>
+                                                    <Slider
+                                                        value={qty[item._id]}
+                                                        valueLabelDisplay="on"
+                                                        min={0}
+                                                        max={100}
+                                                        onChange={(event, newValue) => handleSliderChange(item._id, newValue)}
+                                                    />
+                                                </Box>
+                                                <p>{item.description}</p>
+                                                <p>{item.price}</p>
+                                            </Link>
                                         </div>
                                     </Col>
                                 );

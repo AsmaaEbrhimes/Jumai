@@ -87,9 +87,6 @@ const PartsApi = () => {
                                             onChange={handleChange}
                                         />
                                     </Box>
-
-
-
                                 </AccordionDetails>
                             </Accordion>
                         </div>
@@ -109,7 +106,6 @@ const PartsApi = () => {
                                     <div style={{ position: "relative", margin: "auto", textAlign: "center" }}>
                                         <button style={{ border: "1px solid yellow", position: "relative", padding: "10px" }} onClick={() => ReverDate("الاسم من أ-ي")}>ظهور اخر منتجات</button>
                                     </div>
-
                                 </AccordionDetails>
                             </Accordion>
 
@@ -123,9 +119,9 @@ const PartsApi = () => {
                                 return (
                                     <Col key={item._id} xs={6} md={4} lg={3}>
                                         <div className="product_item_api">
-                                            <Link key={item._id} to={`/Details/${item._id}`}>
+                                            <Link style={{textDecoration:"none"}} key={item._id} to={`/Details/${item._id}`}>
                                                 <img className="product_item_image_api" src={item.image} alt={item.description} />
-                                            </Link>
+                                          
 
                                             <Box sx={{
                                                 width: '100%',
@@ -147,6 +143,7 @@ const PartsApi = () => {
                                             </Box>
                                             <p>{item.description}</p>
                                             <p>{item.price}</p>
+                                            </Link>
                                         </div>
                                     </Col>
                                 );

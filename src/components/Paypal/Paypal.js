@@ -4,7 +4,7 @@ import payment from "../../Image/payments_3_1_200x.avif"
 import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 import "./Paypal.css"
 
-const PaypalButtons = () => {
+const PaypalButtons = ({Total , Cart}) => {
     useEffect(() => {
         window.paypal.Buttons({
             creatOrder: (data, actions) => {
@@ -18,11 +18,10 @@ const PaypalButtons = () => {
             },
             onAppprove: function (data, actions) {
                 return actions.order.capture().then(function (details) {
-                    alert("Tanks for paying dear" + details.payer.name.given_name)
+                   
                 })
             }
         }).render('#paypal-button')
-
     }, [])
     
     return (
@@ -54,3 +53,8 @@ const PaypalButtons = () => {
     )
 }
 export default PaypalButtons
+
+
+
+
+

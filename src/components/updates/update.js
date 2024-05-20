@@ -12,12 +12,15 @@ function MyVerticallyCenteredModal({ datauser, handleUpdate, ...props }) {
     const [emailUpdate, setEmailUpdate] = useState("");
     const [phoneupdate, setPhoneupdate] = useState("");
     const [role, setRole] = useState("");
-useEffect(() => {
-    setName(datauser?.userName)
-    setEmailUpdate(datauser?.email)
-    setPhoneupdate(datauser?.phone)
-}, [])
-  
+
+    useEffect(() => {
+        if (datauser) {
+            setName(datauser.userName || "");
+            setEmailUpdate(datauser.email || "");
+            setPhoneupdate(datauser.phone || "");
+            setRole(datauser.role || "");
+        }
+    }, [datauser]);
 
     const cookie = Cookies();
     const token = cookie.get('token');
@@ -26,7 +29,7 @@ useEffect(() => {
     const UpdateDataUser = (e) => {
         e.preventDefault();
         const userData = {
-            _id: datauser._id,
+            _id: id,
             userName: name,
             email: emailUpdate,
             phone: phoneupdate,
@@ -81,14 +84,14 @@ useEffect(() => {
             <Modal.Body>
                 <form onSubmit={UpdateDataUser} className='form_update'>
                     <label>Enter Your Name</label>
-                    <input value={name} selected onChange={(e) => setName(e.target.value)} type="text" />
+                    <input value={name} onChange={(e) => setName(e.target.value)} type="text" />
                     <label>Enter Your Email</label>
                     <input value={emailUpdate} onChange={(e) => setEmailUpdate(e.target.value)} type="email" required />
                     <label>Enter Your Phone</label>
                     <input value={phoneupdate} onChange={(e) => setPhoneupdate(e.target.value)} type="number" />
 
-                    <select onChange={(e) => setRole(e.target.value)}>
-                        <option selected>None</option>
+                    <select value={role} onChange={(e) => setRole(e.target.value)}>
+                        <option value="">None</option>
                         <option value="admin">ADMIN</option>
                         <option value="user">USER</option>
                     </select>
@@ -146,6 +149,7 @@ function UpdataPopup({ onHide, modalShow, id, handleUpdate }) {
 }
 
 export default UpdataPopup;
+
 
 
 

@@ -1,10 +1,10 @@
 .content_product_api {
     background-color: white;
-   
+
     position: relative;
     top: 10px;
     margin-bottom: 20px;
-  
+
     padding: 10px;
 
     text-align: right;
@@ -19,7 +19,7 @@
     cursor: pointer;
     padding: 20px;
     border-radius: 10px;
-  margin-top: 50px;
+    margin-top: 50px;
     transition: 0.3s linear;
 }
 
@@ -31,6 +31,7 @@
     box-shadow: 1px 1px 10px gold,
         1px 1px 10px gold;
     transform: scale(1);
+  
 }
 
 .product_item_image_api {
@@ -47,17 +48,20 @@
     .product_item_api {
         font-size: 10px;
         height: 200px;
-
         position: relative;
         margin-bottom: 10px;
+        padding: 30px;
+    }
 
+
+    .product_item_api:hover{
+        box-shadow: none;
     }
 }
 
-@media (min-width:767px) and (max-width:1200px){
+@media (min-width:767px) and (max-width:1200px) {
     .content_product_api {
         position: relative;
         top: 50px;
     }
 }
-

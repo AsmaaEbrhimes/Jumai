@@ -127,9 +127,9 @@ const SchoolBag = () => {
                                 return (
                                     <Col key={item._id} xs={6} md={4} lg={3}>
                                         <div className="product_item_api">
-                                            <Link key={item._id} to={`/Details/${item._id}`}>
+                                            <Link style={{ textDecoration: "none" }} key={item._id} to={`/Details/${item._id}`}>
                                                 <img className="product_item_image_api" src={item.image} alt={item.description} />
-                                            </Link>
+                                          
 
                                             <Box sx={{
                                                 width: '100%',
@@ -151,6 +151,7 @@ const SchoolBag = () => {
                                             </Box>
                                             <p>{item.description}</p>
                                             <p>{item.price}</p>
+                                            </Link>
                                         </div>
                                     </Col>
                                 );

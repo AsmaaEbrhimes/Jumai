@@ -50,24 +50,24 @@ const CreatProduct = () => {
         formData.append("price", price);
         formData.append("category", Category);
         formData.append("amount", amount);
-        formData.append("image", image ? image : null); 
-    
+        formData.append("image", image ? image : null);
+
         axios.patch(`https://backfood2-1traner.onrender.com/api/cart/update/${id}`, formData, {
             headers: {
                 'Authorization': `Bearer ${token}`
             }
         }).then((res) => {
             toast.success('🦄 لقد تم تعديل المنتج بنجاح', {
-            position: "bottom-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
+                position: "bottom-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            })
         })
-      })
             .catch((err) => {
                 toast.error(err.response.data.msg, {
                     position: 'top-right',
@@ -81,7 +81,7 @@ const CreatProduct = () => {
                 });
             });
     };
-    
+
     const handelImage = (e) => {
         const imageFile = e.target.files[0];
         if (!imageFile) {
@@ -125,7 +125,7 @@ const CreatProduct = () => {
                     progress: undefined,
                     theme: "light",
                 });
-               
+
                 setTimeout(() => {
                     navhome("../content")
                 }, 1500);
@@ -154,7 +154,6 @@ const CreatProduct = () => {
                 <p>يتطلب شحن التوصيل</p>
                 <Row className="form_creat">
                     <Col xs="12" sm="12" md="6" className="creat_col">
-                        {/* <form onSubmit={supmitDataFromProduct} className="form_creat_product"> */}
                         <form className="form_creat_product">
                             <h5>Upload Your Products</h5>
                             <label className="upload" htmlFor="image_upload">
